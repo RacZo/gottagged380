@@ -1,0 +1,279 @@
+!SESSION 2013-02-25 15:39:26.294 -----------------------------------------------
+eclipse.buildId=v21.0.1-543035
+java.version=1.6.0_37
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -keyring /Users/bardia/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -keyring /Users/bardia/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-25 15:39:41.535
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2013-02-25 15:40:16.948
+!MESSAGE Error while tracking project-level changes from a change in R/
+!STACK 1
+Java Model Exception: Java Model Status [Unbound classpath container: 'App Engine SDK [missing]' in project 'gottagged380-AppEngine']
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2007)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.isResourceInAnOutputPath(ProjectChangeTimestampTracker.java:121)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.visitDelta(ProjectChangeTimestampTracker.java:162)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.visitDelta(ProjectChangeTimestampTracker.java:169)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.resourceChanged(ProjectChangeTimestampTracker.java:181)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:395)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1530)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2353)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.jdt.core 4 963 2013-02-25 15:40:16.949
+!MESSAGE Unbound classpath container: 'App Engine SDK [missing]' in project 'gottagged380-AppEngine'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-25 15:40:17.284
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/gottagged380/res' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:341)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:215)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:266)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:249)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$6.run(Sdk.java:1306)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2013-02-25 15:40:17.286
+!MESSAGE Resource '/gottagged380/res' does not exist.
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2013-02-25 15:40:19.343
+!MESSAGE Error while tracking project-level changes from a change in R/
+!STACK 1
+Java Model Exception: Java Model Status [Unbound classpath container: 'App Engine SDK [missing]' in project 'gottagged380-AppEngine']
+	at org.eclipse.jdt.internal.core.JavaProject.getResolvedClasspath(JavaProject.java:2007)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.isResourceInAnOutputPath(ProjectChangeTimestampTracker.java:121)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.visitDelta(ProjectChangeTimestampTracker.java:162)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.visitDelta(ProjectChangeTimestampTracker.java:169)
+	at com.google.gdt.eclipse.core.projects.ProjectChangeTimestampTracker.resourceChanged(ProjectChangeTimestampTracker.java:181)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:395)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1530)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:45)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.jdt.core 4 963 2013-02-25 15:40:19.344
+!MESSAGE Unbound classpath container: 'App Engine SDK [missing]' in project 'gottagged380-AppEngine'
+
+!ENTRY com.google.gdt.eclipse.suite 1 0 2013-02-25 15:40:26.823
+!MESSAGE Registering: com.google.appengine.eclipse.sdkbundle_1.7.5
+
+!ENTRY com.google.gdt.eclipse.suite 1 0 2013-02-25 15:40:31.483
+!MESSAGE Registering: com.google.gwt.eclipse.sdkbundle_2.5.0
+
+!ENTRY com.google.gdt.eclipse.core 1 0 2013-02-25 15:40:32.475
+!MESSAGE Scheduled rebuild of project gottagged380-AppEngine because of plugin update (current version: 3.2.0.v201302131858-rel-r42)
+
+!ENTRY org.eclipse.core.resources 4 2 2013-02-25 15:40:37.551
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.UnsupportedClassVersionError: com/gottagged380/DeviceInfoEndpoint : Unsupported major.minor version 51.0
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClassCond(ClassLoader.java:631)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:615)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:141)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:283)
+	at java.net.URLClassLoader.access$000(URLClassLoader.java:58)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:197)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:190)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.helpers.SwarmServiceCreator.getClassObject(SwarmServiceCreator.java:610)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.helpers.SwarmServiceCreator.create(SwarmServiceCreator.java:342)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.HandleGaeProjectChange.gaeProjectRebuilt(HandleGaeProjectChange.java:69)
+	at com.google.appengine.eclipse.core.properties.ui.GaeProjectChangeNotifier.build(GaeProjectChangeNotifier.java:88)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at com.google.gdt.eclipse.core.BuilderUtilities$2.runInWorkspace(BuilderUtilities.java:202)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.resources 4 566 2013-02-25 15:40:39.086
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.google.appengine.eclipse.core 4 75 2013-02-25 15:40:39.086
+!MESSAGE Errors running builder 'Google App Engine Project Change Notifier' on project 'gottagged380-AppEngine'.
+!STACK 0
+java.lang.UnsupportedClassVersionError: com/gottagged380/DeviceInfoEndpoint : Unsupported major.minor version 51.0
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClassCond(ClassLoader.java:631)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:615)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:141)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:283)
+	at java.net.URLClassLoader.access$000(URLClassLoader.java:58)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:197)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:190)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.helpers.SwarmServiceCreator.getClassObject(SwarmServiceCreator.java:610)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.helpers.SwarmServiceCreator.create(SwarmServiceCreator.java:342)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.HandleGaeProjectChange.gaeProjectRebuilt(HandleGaeProjectChange.java:69)
+	at com.google.appengine.eclipse.core.properties.ui.GaeProjectChangeNotifier.build(GaeProjectChangeNotifier.java:88)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:256)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:394)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:114)
+	at com.google.gdt.eclipse.core.BuilderUtilities$2.runInWorkspace(BuilderUtilities.java:202)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:40:51.539
+!MESSAGE Could not check whether the launch configuration "gottagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:41:14.103
+!MESSAGE Could not check whether the launch configuration "gottagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY org.eclipse.core.resources 4 2 2013-02-25 15:42:52.782
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.UnsupportedClassVersionError: com/gottagged380/DeviceInfoEndpoint : Unsupported major.minor version 51.0
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClassCond(ClassLoader.java:631)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:615)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:141)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:283)
+	at java.net.URLClassLoader.access$000(URLClassLoader.java:58)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:197)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:190)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.helpers.SwarmServiceCreator.getClassObject(SwarmServiceCreator.java:610)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.helpers.SwarmServiceCreator.create(SwarmServiceCreator.java:342)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.HandleGaeProjectChange.gaeProjectRebuilt(HandleGaeProjectChange.java:75)
+	at com.google.appengine.eclipse.core.properties.ui.GaeProjectChangeNotifier.build(GaeProjectChangeNotifier.java:88)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.resources 4 75 2013-02-25 15:42:52.833
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 com.google.appengine.eclipse.core 4 75 2013-02-25 15:42:52.833
+!MESSAGE Errors running builder 'Google App Engine Project Change Notifier' on project 'gottagged380-AppEngine'.
+!STACK 0
+java.lang.UnsupportedClassVersionError: com/gottagged380/DeviceInfoEndpoint : Unsupported major.minor version 51.0
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClassCond(ClassLoader.java:631)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:615)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:141)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:283)
+	at java.net.URLClassLoader.access$000(URLClassLoader.java:58)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:197)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:190)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.helpers.SwarmServiceCreator.getClassObject(SwarmServiceCreator.java:610)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.helpers.SwarmServiceCreator.create(SwarmServiceCreator.java:342)
+	at com.google.gdt.eclipse.appengine.swarm.wizards.HandleGaeProjectChange.gaeProjectRebuilt(HandleGaeProjectChange.java:75)
+	at com.google.appengine.eclipse.core.properties.ui.GaeProjectChangeNotifier.build(GaeProjectChangeNotifier.java:88)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-25 15:44:20.685
+!MESSAGE Failed to load properties file for project 'GotTagged380'
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:44:24.730
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:45:27.583
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:45:27.604
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2013-02-25 15:45:29.147
+!MESSAGE Project facet jst.web has not been defined. It is used in plugin org.eclipse.jst.server.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2013-02-25 15:45:29.147
+!MESSAGE Project facet jst.ejb has not been defined. It is used in plugin org.eclipse.jst.server.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2013-02-25 15:45:29.148
+!MESSAGE Project facet jst.ear has not been defined. It is used in plugin org.eclipse.jst.server.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2013-02-25 15:45:29.148
+!MESSAGE Project facet jst.connector has not been defined. It is used in plugin org.eclipse.jst.server.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2013-02-25 15:45:29.148
+!MESSAGE Project facet jst.appclient has not been defined. It is used in plugin org.eclipse.jst.server.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2013-02-25 15:45:29.148
+!MESSAGE Project facet jst.utility has not been defined. It is used in plugin org.eclipse.jst.server.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2013-02-25 15:45:29.204
+!MESSAGE Project facet wst.jsdt.web has not been defined. It is used in plugin org.eclipse.jst.server.core.
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:45:29.401
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:45:29.474
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:45:29.493
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:45:29.524
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:45:29.543
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:45:29.562
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:45:29.580
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:48:16.659
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:48:16.693
+!MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
