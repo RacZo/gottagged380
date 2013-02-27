@@ -1,11 +1,11 @@
 {
   "files": [
     {
-      "path": "gottagged380-deviceinfoendpoint-v1-20130225234806-java-1.13.2-beta-sources.jar", 
+      "path": "gottagged380-deviceinfoendpoint-v1-20130227233020-java-1.13.2-beta-sources.jar", 
       "type": "source"
     }, 
     {
-      "path": "gottagged380-deviceinfoendpoint-v1-20130225234806-java-1.13.2-beta.jar.properties", 
+      "path": "gottagged380-deviceinfoendpoint-v1-20130227233020-java-1.13.2-beta.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -690,7 +690,7 @@
     }
   ], 
   "language_version": "1.13.2-beta", 
-  "revision": 20130225234806, 
+  "revision": 20130227233020, 
   "id": "deviceinfoendpoint:v1", 
   "name": "deviceinfoendpoint"
 }

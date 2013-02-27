@@ -42,7 +42,7 @@ public class MessageEndpoint {
    * TODO: Fill this in with the server key that you've obtained from the API
    * Console (https://code.google.com/apis/console).
    */
-  private static final String API_KEY = "";
+  private static final String API_KEY = "AIzaSyBoZIotz2n3A9dxqAZxLQpwyPElgjQWUj0";
 
   private static final DeviceInfoEndpoint endpoint = new DeviceInfoEndpoint();
 

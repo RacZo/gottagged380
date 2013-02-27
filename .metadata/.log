@@ -277,3 +277,44 @@ java.lang.UnsupportedClassVersionError: com/gottagged380/DeviceInfoEndpoint : Un
 
 !ENTRY com.google.gwt.eclipse.core 2 0 2013-02-25 15:48:16.693
 !MESSAGE Could not check whether the launch configuration "GotTagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY org.eclipse.core.jobs 4 2 2013-02-25 16:41:01.464
+!MESSAGE An internal error occurred during: "DataNucleus Enhancer".
+!STACK 0
+org.eclipse.swt.SWTException: Invalid thread access
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1068)
+	at org.eclipse.swt.widgets.Display.createDisplay(Display.java:825)
+	at org.eclipse.swt.widgets.Display.create(Display.java:808)
+	at org.eclipse.swt.graphics.Device.<init>(Device.java:130)
+	at org.eclipse.swt.widgets.Display.<init>(Display.java:699)
+	at org.eclipse.swt.widgets.Display.<init>(Display.java:690)
+	at org.eclipse.swt.widgets.Display.getDefault(Display.java:1386)
+	at com.google.gdt.eclipse.core.ProcessUtilities.launchProcessAndActivateOnError(ProcessUtilities.java:247)
+	at com.google.appengine.eclipse.core.orm.enhancement.EnhancerJob.runInWorkspace(EnhancerJob.java:117)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2013-02-27 15:29:23.084 -----------------------------------------------
+eclipse.buildId=v21.0.1-543035
+java.version=1.6.0_37
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -keyring /Users/bardia/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -keyring /Users/bardia/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-02-27 15:29:25.823
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-27 15:29:34.858
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.google.gdt.eclipse.core 1 0 2013-02-27 15:30:14.182
+!MESSAGE Scheduled rebuild of project GotTagged380-AppEngine because of plugin update (current version: 3.2.0.v201302131858-rel-r42)
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-27 15:30:38.269
+!MESSAGE Could not check whether the launch configuration "gottagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-02-27 15:30:38.385
+!MESSAGE Could not check whether the launch configuration "gottagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
