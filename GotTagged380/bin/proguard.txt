@@ -1,14 +1,23 @@
-# view AndroidManifest.xml #generated:22
+# view AndroidManifest.xml #generated:58
 -keep class com.google.android.gcm.GCMBroadcastReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:21
+# view AndroidManifest.xml #generated:56
 -keep class com.gottagged380.GCMIntentService { <init>(...); }
 
-# view AndroidManifest.xml #generated:14
+# view AndroidManifest.xml #generated:76
+-keep class com.gottagged380.Gameplay { <init>(...); }
+
+# view AndroidManifest.xml #generated:38
 -keep class com.gottagged380.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:33
+# view AndroidManifest.xml #generated:73
 -keep class com.gottagged380.RegisterActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:29
+-keep class com.gottagged380.Splash { <init>(...); }
+
+# view AndroidManifest.xml #generated:47
+-keep class com.gottagged380.WelcomeMenu { <init>(...); }
 
 # onClick res/layout/activity_register.xml #generated:22
 -keepclassmembers class * { *** onSave(...); }

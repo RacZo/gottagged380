@@ -3,14 +3,11 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-import com.googlecode.objectify.annotation.Index;
-
 @Entity
 public class User {
 	
 	 @Id
 	 private String name;	
-	 @Index
 	 private String email;
 	 private String deviceRegisterId;
 	 private String deviceType;

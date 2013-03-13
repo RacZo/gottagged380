@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		// Start up RegisterActivity right away
-		Intent intent = new Intent(this, RegisterActivity.class);
+		Intent intent = new Intent(this, WelcomeMenu.class);
 		startActivity(intent);
 	}
 
