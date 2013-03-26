@@ -1,0 +1,40 @@
+package com.gottagged380;
+
+import javax.jdo.annotations.PersistenceCapable;
+
+
+@PersistenceCapable
+public class GameRequest {
+
+	String nameOfCreator;
+	String nameOfPlayer;
+	int duration;
+	
+	
+	
+	public void setNameOfCreator(String name){
+		this.nameOfCreator = name;
+		
+	}
+	
+	public String getNameOfCreator(){
+		return this.nameOfCreator;
+	}
+	
+	public void setNameOfPlayer(String name){
+		this.nameOfPlayer = name;
+	}
+	
+	public String getNameOfPlayer(){
+		return nameOfPlayer;
+	}
+	
+	public void setDuration(int duration){
+		this.duration = duration;
+	}
+	
+	public int getDuration(){
+		return duration;
+	}
+	
+}

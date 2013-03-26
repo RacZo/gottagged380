@@ -1,0 +1,72 @@
+package com.gottagged380;
+
+
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+
+import javax.jdo.PersistenceManager;
+import javax.jdo.Query;
+import javax.jdo.annotations.Persistent;
+
+import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiMethod;
+
+
+@Api(name = "gamemanager")
+public class GameManager {
+
+	@SuppressWarnings("unchecked")
+	@ApiMethod(name = "game.create")
+	public  GameRequestResponse createGame(GameRequest request) throws IOException{
+		PersistenceManager pm = getPersistenceManager();
+		Player player = null;
+		Query q = pm.newQuery(User.class);
+		q.setFilter("name == nameParam");
+		q.declareParameters("String nameParam");
+		
+		
+		GameSession game = new GameSession();
+		game.setId(new Date().getTime());
+		try{
+			for(String name :request.getNameOfPlayers()){
+		
+				List<User> result = (List<User>) q.execute(name);
+				String message = "Invite " + request.getNameOfCreator() +" GameSessionId "+ game.getId();
+				sendGCMessage(result.get(0), message);
+				player = (Player) result.get(0);
+				player.setId(game.getId());
+				player.join(false);
+				//player.setDeviceRegisterId(result.get(0).getDeviceRegisterId());
+				//player.setId(game.getId());
+				
+				try{
+					pm.makePersistent(player);
+				}finally{
+					pm.close();
+				}
+				
+				
+			}
+		}finally{
+			q.closeAll();
+		}
+		
+			GameRequestResponse grr = new GameRequestResponse();
+			grr.setId(game.getId());
+	     return grr;
+	}
+	
+	private void sendGCMessage(User user, String message) throws IOException{
+		GCMHandler gcm = new GCMHandler();
+		gcm.sendMessage(user, message);
+	}
+	
+	private static PersistenceManager getPersistenceManager() {
+		return PMF.get().getPersistenceManager();
+	}
+
+}
+
+

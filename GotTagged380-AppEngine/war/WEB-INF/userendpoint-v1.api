@@ -24,31 +24,7 @@
     "maxAge" : 0
   },
   "methods" : {
-    "userendpoint.listUser" : {
-      "path" : "user",
-      "httpMethod" : "GET",
-      "scopes" : [ ],
-      "audiences" : [ ],
-      "clientIds" : [ ],
-      "rosyMethod" : "UserEndpoint.listUser",
-      "request" : {
-        "parameters" : {
-          "cursor" : {
-            "type" : "string",
-            "required" : false
-          },
-          "limit" : {
-            "type" : "int32",
-            "required" : false
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "userendpoint.getUser" : {
+    "userendpoint.user.get" : {
       "path" : "user/{id}",
       "httpMethod" : "GET",
       "scopes" : [ ],
@@ -68,27 +44,7 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "userendpoint.removeUser" : {
-      "path" : "user/{id}",
-      "httpMethod" : "DELETE",
-      "scopes" : [ ],
-      "audiences" : [ ],
-      "clientIds" : [ ],
-      "rosyMethod" : "UserEndpoint.removeUser",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "string",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "userendpoint.insertUser" : {
+    "userendpoint.user.insert" : {
       "path" : "user",
       "httpMethod" : "POST",
       "scopes" : [ ],
@@ -103,7 +59,7 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "userendpoint.updateUser" : {
+    "userendpoint.user.update" : {
       "path" : "user",
       "httpMethod" : "PUT",
       "scopes" : [ ],
@@ -121,21 +77,6 @@
   },
   "descriptor" : {
     "schemas" : {
-      "CollectionResponse_User" : {
-        "id" : "CollectionResponse_User",
-        "type" : "object",
-        "properties" : {
-          "items" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "User"
-            }
-          },
-          "nextPageToken" : {
-            "type" : "string"
-          }
-        }
-      },
       "User" : {
         "id" : "User",
         "type" : "object",
@@ -156,17 +97,7 @@
       }
     },
     "methods" : {
-      "UserEndpoint.listUser" : {
-        "response" : {
-          "$ref" : "CollectionResponse_User"
-        }
-      },
       "UserEndpoint.getUser" : {
-        "response" : {
-          "$ref" : "User"
-        }
-      },
-      "UserEndpoint.removeUser" : {
         "response" : {
           "$ref" : "User"
         }

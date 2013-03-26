@@ -1,0 +1,31 @@
+package com.gottagged380;
+
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+
+
+@PersistenceCapable
+public class GameSession {
+
+	@PrimaryKey
+	@Persistent
+	String id;
+	@Persistent
+	boolean isOver;
+	
+	public GameSession(){
+		
+	}
+	
+	public void setId(String id){
+		this.id = id;
+	}
+	
+	public String getId(){
+		return id;
+	}
+
+
+}

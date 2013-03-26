@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"2MERlHgXUfSlVQnFAL3vX-58eZg/jeb_2dVo6CBidcySMf3RezaC-k8\"",
+ "etag": "\"2MERlHgXUfSlVQnFAL3vX-58eZg/bRahYV35l1HtaU8V7h97xW_35m8\"",
  "discoveryVersion": "v1",
  "id": "userendpoint:v1",
  "name": "userendpoint",
@@ -60,21 +60,6 @@
   }
  },
  "schemas": {
-  "CollectionResponse_User": {
-   "id": "CollectionResponse_User",
-   "type": "object",
-   "properties": {
-    "items": {
-     "type": "array",
-     "items": {
-      "$ref": "User"
-     }
-    },
-    "nextPageToken": {
-     "type": "string"
-    }
-   }
-  },
   "User": {
    "id": "User",
    "type": "object",
@@ -95,8 +80,8 @@
   }
  },
  "methods": {
-  "userendpoint.getUser": {
-   "id": "userendpoint.getUser",
+  "userendpoint.user.get": {
+   "id": "userendpoint.user.get",
    "allowGet": true,
    "parameters": {
     "id": {
@@ -111,8 +96,8 @@
     "$ref": "User"
    }
   },
-  "userendpoint.insertUser": {
-   "id": "userendpoint.insertUser",
+  "userendpoint.user.insert": {
+   "id": "userendpoint.user.insert",
    "parameters": {
     "resource": {
      "$ref": "User"
@@ -125,28 +110,25 @@
     "$ref": "User"
    }
   },
-  "userendpoint.listUser": {
-   "id": "userendpoint.listUser",
-   "allowGet": true,
+  "userendpoint.user.patch": {
+   "id": "userendpoint.user.patch",
+   "supportsPatch": true,
    "parameters": {
-    "cursor": {
+    "deviceRegisterId": {
      "type": "string"
     },
-    "limit": {
-     "type": "integer",
-     "format": "int32"
-    }
-   },
-   "returns": {
-    "$ref": "CollectionResponse_User"
-   }
-  },
-  "userendpoint.removeUser": {
-   "id": "userendpoint.removeUser",
-   "parameters": {
+    "deviceType": {
+     "type": "string"
+    },
+    "email": {
+     "type": "string"
+    },
     "id": {
      "type": "string",
      "required": true
+    },
+    "name": {
+     "type": "string"
     }
    },
    "parameterOrder": [
@@ -156,8 +138,8 @@
     "$ref": "User"
    }
   },
-  "userendpoint.updateUser": {
-   "id": "userendpoint.updateUser",
+  "userendpoint.user.update": {
+   "id": "userendpoint.user.update",
    "parameters": {
     "resource": {
      "$ref": "User"

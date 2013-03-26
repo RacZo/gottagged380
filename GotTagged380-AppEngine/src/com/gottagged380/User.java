@@ -1,16 +1,26 @@
 package com.gottagged380;
 import java.util.Date;
 
-import javax.persistence.*;
 
-@Entity
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+
+
+@PersistenceCapable
 public class User {
 	
-	 @Id
-	 private String name;	
+	 @Persistent
+	 private String name;
+	 @PrimaryKey
+	 @Persistent
 	 private String email;
+	 @Persistent
 	 private String deviceRegisterId;
+	 @Persistent
 	 private String deviceType;
+	 @Persistent
 	 private Date dateRegistered;
 	
 	 public User() {

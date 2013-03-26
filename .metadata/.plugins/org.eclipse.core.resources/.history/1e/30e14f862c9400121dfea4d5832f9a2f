@@ -1,0 +1,94 @@
+package com.gottagged380;
+
+
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+
+import javax.jdo.PersistenceManager;
+import javax.jdo.Query;
+import javax.jdo.annotations.Persistent;
+
+import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiMethod;
+
+
+@Api(name = "gamemanager")
+public class GameManager {
+
+	@SuppressWarnings("unchecked")
+	@ApiMethod(name = "game.create")
+	public  GameRequestResponse createGame(GameRequest request) throws IOException{
+		PersistenceManager pm = getPersistenceManager();
+		Query q = pm.newQuery(User.class);
+		q.setFilter("name == nameParam");
+		q.declareParameters("String nameParam");
+		Player player = new Player();
+		
+		GameSession game = new GameSession();
+		game.setId(new Date().getTime());
+		try{
+			for(String name :request.getNameOfPlayers()){
+		
+				List<User> result = (List<User>) q.execute(name);
+				String message = "Invite " + request.getNameOfCreator() +" GameSessionId "+ game.getId();
+				sendGCMessage(result.get(0), message);
+				
+				player.join(false);
+				player.setEmail(result.get(0).getEmail());
+				player.setId(game.getId());
+				
+				try{
+					pm.makePersistent(player);
+				}finally{
+					pm.close();
+				}
+				
+				
+			}
+		}finally{
+			q.closeAll();
+		}
+		
+			GameRequestResponse grr = new GameRequestResponse();
+			grr.setId(game.getId());
+	     return grr;
+	}
+	
+	
+	
+	@SuppressWarnings("unchecked")
+	@ApiMethod(name = "game.join")
+	public JoinGame joinGame(JoinGame game){
+		PersistenceManager pm = getPersistenceManager();
+		Query q = pm.newQuery(Player.class);
+		q.setFilter("ID == gameSessionIdParam");
+		q.declareParameters("String gameSessionIdParam");
+		
+		List<Player> players = (List<Player>) q.execute(game.getId()); 
+		for(Player p : players){
+			if(p.getEmail() == game.getEmail()){
+				p.join(game.getJoin());
+				try{
+					pm.makePersistent(p);
+				}finally{
+					pm.close();
+				}
+		}
+		}
+		return game;
+	}
+	
+	private void sendGCMessage(User user, String message) throws IOException{
+		GCMHandler gcm = new GCMHandler();
+		gcm.sendMessage(user, message);
+	}
+	
+	private static PersistenceManager getPersistenceManager() {
+		return PMF.get().getPersistenceManager();
+	}
+
+}
+
+

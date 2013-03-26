@@ -1,0 +1,19 @@
+package com.gottagged380;
+
+
+import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiMethod;
+
+@Api(name = "Gamemanger", version = "v1")
+public class GameEndpoint {
+
+	
+		
+	@ApiMethod(name = "insert.user")
+	public User insertUser(User user) {
+
+		return user;
+	}
+
+
+}

@@ -1,0 +1,124 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://gottagged380.appspot.com/_ah/api",
+  "name" : "gamemanager",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "http://gottagged380.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "gamemanager.game.create" : {
+      "path" : "createGame",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "GameManager.createGame",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "gamemanager.game.join" : {
+      "path" : "joinGame",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "GameManager.joinGame",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "GameRequest" : {
+        "id" : "GameRequest",
+        "type" : "object",
+        "properties" : {
+          "nameOfCreator" : {
+            "type" : "string"
+          },
+          "nameOfPlayers" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "duration" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "GameRequestResponse" : {
+        "id" : "GameRequestResponse",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "JoinGame" : {
+        "id" : "JoinGame",
+        "type" : "object",
+        "properties" : {
+          "join" : {
+            "type" : "boolean"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "GameManager.createGame" : {
+        "request" : {
+          "$ref" : "GameRequest"
+        },
+        "response" : {
+          "$ref" : "GameRequestResponse"
+        }
+      },
+      "GameManager.joinGame" : {
+        "request" : {
+          "$ref" : "JoinGame"
+        },
+        "response" : {
+          "$ref" : "JoinGame"
+        }
+      }
+    }
+  }
+}

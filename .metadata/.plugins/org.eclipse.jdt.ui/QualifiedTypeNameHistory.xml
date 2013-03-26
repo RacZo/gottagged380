@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.jdo.annotations.PersistenceCapable"/>
+<fullyQualifiedTypeName name="javax.jdo.annotations.PrimaryKey"/>
+<fullyQualifiedTypeName name="com.google.api.server.spi.config.Api"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Entity"/>
+<fullyQualifiedTypeName name="javax.jdo.annotations.IdGeneratorStrategy"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.datastore.Key"/>
+<fullyQualifiedTypeName name="com.google.api.server.spi.config.ApiMethod"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.datastore.KeyFactory"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="javax.jdo.Query"/>
+<fullyQualifiedTypeName name="javax.jdo.annotations.Inheritance"/>
+<fullyQualifiedTypeName name="javax.jdo.annotations.InheritanceStrategy"/>
+<fullyQualifiedTypeName name="javax.jdo.annotations.Persistent"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

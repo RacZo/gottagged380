@@ -1,0 +1,20 @@
+package com.gottagged380;
+
+import javax.inject.Named;
+
+import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiMethod;
+
+
+@Api(name = "gamemanager")
+public class GameManager {
+
+	@ApiMethod(name = "game.create")
+	public GameSession createGame(String name, String email){
+		
+	     GameSession game = new GameSession();
+	     game.setId("12345");
+	     
+	     return game;
+	}
+}

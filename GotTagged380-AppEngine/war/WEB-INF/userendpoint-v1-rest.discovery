@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"2MERlHgXUfSlVQnFAL3vX-58eZg/jeb_2dVo6CBidcySMf3RezaC-k8\"",
+ "etag": "\"2MERlHgXUfSlVQnFAL3vX-58eZg/bRahYV35l1HtaU8V7h97xW_35m8\"",
  "discoveryVersion": "v1",
  "id": "userendpoint:v1",
  "name": "userendpoint",
@@ -62,21 +62,6 @@
   }
  },
  "schemas": {
-  "CollectionResponse_User": {
-   "id": "CollectionResponse_User",
-   "type": "object",
-   "properties": {
-    "items": {
-     "type": "array",
-     "items": {
-      "$ref": "User"
-     }
-    },
-    "nextPageToken": {
-     "type": "string"
-    }
-   }
-  },
   "User": {
    "id": "User",
    "type": "object",
@@ -96,82 +81,70 @@
    }
   }
  },
- "methods": {
-  "getUser": {
-   "id": "userendpoint.getUser",
-   "path": "user/{id}",
-   "httpMethod": "GET",
-   "parameters": {
-    "id": {
-     "type": "string",
-     "required": true,
-     "location": "path"
-    }
-   },
-   "parameterOrder": [
-    "id"
-   ],
-   "response": {
-    "$ref": "User"
-   }
-  },
-  "insertUser": {
-   "id": "userendpoint.insertUser",
-   "path": "user",
-   "httpMethod": "POST",
-   "request": {
-    "$ref": "User"
-   },
-   "response": {
-    "$ref": "User"
-   }
-  },
-  "listUser": {
-   "id": "userendpoint.listUser",
-   "path": "user",
-   "httpMethod": "GET",
-   "parameters": {
-    "cursor": {
-     "type": "string",
-     "location": "query"
+ "resources": {
+  "user": {
+   "methods": {
+    "get": {
+     "id": "userendpoint.user.get",
+     "path": "user/{id}",
+     "httpMethod": "GET",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "User"
+     }
     },
-    "limit": {
-     "type": "integer",
-     "format": "int32",
-     "location": "query"
+    "insert": {
+     "id": "userendpoint.user.insert",
+     "path": "user",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "User"
+     },
+     "response": {
+      "$ref": "User"
+     }
+    },
+    "patch": {
+     "id": "userendpoint.user.patch",
+     "path": "user",
+     "httpMethod": "PATCH",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "location": "query"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "request": {
+      "$ref": "User"
+     },
+     "response": {
+      "$ref": "User"
+     }
+    },
+    "update": {
+     "id": "userendpoint.user.update",
+     "path": "user",
+     "httpMethod": "PUT",
+     "request": {
+      "$ref": "User"
+     },
+     "response": {
+      "$ref": "User"
+     }
     }
-   },
-   "response": {
-    "$ref": "CollectionResponse_User"
-   }
-  },
-  "removeUser": {
-   "id": "userendpoint.removeUser",
-   "path": "user/{id}",
-   "httpMethod": "DELETE",
-   "parameters": {
-    "id": {
-     "type": "string",
-     "required": true,
-     "location": "path"
-    }
-   },
-   "parameterOrder": [
-    "id"
-   ],
-   "response": {
-    "$ref": "User"
-   }
-  },
-  "updateUser": {
-   "id": "userendpoint.updateUser",
-   "path": "user",
-   "httpMethod": "PUT",
-   "request": {
-    "$ref": "User"
-   },
-   "response": {
-    "$ref": "User"
    }
   }
  }
