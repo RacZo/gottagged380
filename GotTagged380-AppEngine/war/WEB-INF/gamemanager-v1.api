@@ -92,7 +92,7 @@
           "join" : {
             "type" : "boolean"
           },
-          "email" : {
+          "name" : {
             "type" : "string"
           },
           "id" : {

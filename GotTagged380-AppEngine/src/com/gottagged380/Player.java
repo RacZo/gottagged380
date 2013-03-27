@@ -12,14 +12,13 @@ public class Player {
 	@Persistent
 	private double longitude;
 	@Persistent
-	
 	private Long gameSessionId;
 	@Persistent
 	private boolean hasJoined;
 	@Persistent
 	private String role;
 	@Persistent
-	private String email;
+	private String name;
 	
 	
 	public void setLatitude(double lat){
@@ -70,12 +69,12 @@ public class Player {
 		return role;
 	}
 	
-	public void setEmail(String email){
-		this.email = email;
+	public void setName(String name){
+		this.name = name;
 	}
 	
-	public String getEmail(){
-		return email;
+	public String getName(){
+		return name;
 	}
 	
 	

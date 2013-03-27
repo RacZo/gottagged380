@@ -1,11 +1,11 @@
 {
   "files": [
     {
-      "path": "gottagged380-gamemanager-v1-20130326065132-java-1.14.1-beta-sources.jar", 
+      "path": "gottagged380-gamemanager-v1-20130327203501-java-1.14.1-beta-sources.jar", 
       "type": "source"
     }, 
     {
-      "path": "gottagged380-gamemanager-v1-20130326065132-java-1.14.1-beta.jar.properties", 
+      "path": "gottagged380-gamemanager-v1-20130327203501-java-1.14.1-beta.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -687,7 +687,7 @@
     }
   ], 
   "language_version": "1.14.1-beta", 
-  "revision": 20130326065132, 
+  "revision": 20130327203501, 
   "id": "gamemanager:v1", 
   "name": "gamemanager"
 }

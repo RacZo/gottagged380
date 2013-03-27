@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"2MERlHgXUfSlVQnFAL3vX-58eZg/vuOb5c7q0UudwW1brUEVaHEXNAA\"",
+ "etag": "\"2MERlHgXUfSlVQnFAL3vX-58eZg/5LvIdm_zNok5ynV8ggQGvI1SRP0\"",
  "discoveryVersion": "v1",
  "id": "gamemanager:v1",
  "name": "gamemanager",
@@ -93,15 +93,15 @@
    "id": "JoinGame",
    "type": "object",
    "properties": {
-    "email": {
-     "type": "string"
-    },
     "id": {
      "type": "string",
      "format": "int64"
     },
     "join": {
      "type": "boolean"
+    },
+    "name": {
+     "type": "string"
     }
    }
   }
