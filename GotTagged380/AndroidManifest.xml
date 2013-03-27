@@ -27,28 +27,29 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Splash"
+            android:name="com.gottagged380.Splash"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.gottagged380.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.gottagged380.MAINACTIVITY" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.gottagged380.WelcomeMenu"
             android:label="@string/title_activity_welcome_menu" >
             <intent-filter>
                 <action android:name="com.gottagged380.WELCOMEMENU" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -77,7 +78,20 @@
             android:name="com.gottagged380.Gameplay"
             android:label="@string/title_activity_gameplay" >
         </activity>
+        <activity
+            android:name="com.gottagged380.MainMenu"
+            android:label="@string/title_activity_main_menu" >
+            <intent-filter>
+                <action android:name="com.gottagged380.MAINMENU" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.gottagged380.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
     </application>
 
 </manifest>

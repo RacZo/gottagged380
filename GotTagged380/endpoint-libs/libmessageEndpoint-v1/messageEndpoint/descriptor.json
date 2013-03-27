@@ -1,11 +1,11 @@
 {
   "files": [
     {
-      "path": "gottagged380-messageEndpoint-v1-20130313221814-java-1.13.2-beta-sources.jar", 
+      "path": "gottagged380-messageEndpoint-v1-20130320222428-java-1.13.2-beta-sources.jar", 
       "type": "source"
     }, 
     {
-      "path": "gottagged380-messageEndpoint-v1-20130313221814-java-1.13.2-beta.jar.properties", 
+      "path": "gottagged380-messageEndpoint-v1-20130320222428-java-1.13.2-beta.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -690,7 +690,7 @@
     }
   ], 
   "language_version": "1.13.2-beta", 
-  "revision": 20130313221814, 
+  "revision": 20130320222428, 
   "id": "messageEndpoint:v1", 
   "name": "messageEndpoint"
 }

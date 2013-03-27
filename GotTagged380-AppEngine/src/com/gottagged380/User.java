@@ -1,6 +1,5 @@
 package com.gottagged380;
 import java.util.Date;
-
 import javax.persistence.*;
 
 @Entity

@@ -10,5 +10,9 @@
     <string name="title_activity_welcome_menu">WelcomeMenu</string>
     <string name="hello_world">Hello world!</string>
     <string name="hello">Hello!!</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="welcome">GotTagged</string>
+    <string name="login">Login</string>
+    <string-array name="spinner"></string-array>
 
 </resources>

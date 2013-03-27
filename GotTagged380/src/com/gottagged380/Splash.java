@@ -27,7 +27,6 @@ public class Splash extends Activity{
 				} finally{
 					Intent openWelcomeMenu = new Intent("com.gottagged380.WELCOMEMENU");
 					startActivity(openWelcomeMenu);
-					finish();
 				}
 			}
 		};
@@ -46,6 +45,7 @@ public class Splash extends Activity{
 		// TODO Auto-generated method stub
 		super.onPause();
 		mpSplash.pause();
+		finish();
 	}
 
 	@Override
