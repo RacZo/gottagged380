@@ -378,3 +378,42 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.
 
 !ENTRY com.google.appengine.eclipse.core 1 0 2013-04-21 20:53:21.818
 !MESSAGE GotTagged380-AppEngine successfully deployed to Google App Engine
+!SESSION 2013-04-22 12:04:32.103 -----------------------------------------------
+eclipse.buildId=v21.0.1-543035
+java.version=1.6.0_43
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -keyring /Users/bardia/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -keyring /Users/bardia/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-04-22 12:04:42.427
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-22 12:04:46.658
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project GotTagged380
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-04-22 12:05:23.814
+!MESSAGE Could not check whether the launch configuration "gottagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2013-04-22 12:05:24.993
+!MESSAGE Could not check whether the launch configuration "gottagged380-AppEngine" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.suite.ext 4 2 2013-04-22 12:05:27.118
+!MESSAGE Problems occurred when invoking code from plug-in: "com.google.gdt.eclipse.suite.ext".
+!STACK 0
+java.lang.NoClassDefFoundError: com/google/gdt/eclipse/suite/ext/update/ui/UpdateNotificationToastPopup$NotificationControlSelectedHandler
+	at com.google.gdt.eclipse.suite.ext.update.CompositeArtifactsDowloadJobChangeListener.notifyOfAvailableUpdates(CompositeArtifactsDowloadJobChangeListener.java:271)
+	at com.google.gdt.eclipse.suite.ext.update.CompositeArtifactsDowloadJobChangeListener.done(CompositeArtifactsDowloadJobChangeListener.java:155)
+	at org.eclipse.core.internal.jobs.JobListeners$3.notify(JobListeners.java:39)
+	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:112)
+	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:152)
+	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:647)
+	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:70)
+Caused by: java.lang.ClassNotFoundException: com.google.gdt.eclipse.suite.ext.update.ui.UpdateNotificationToastPopup$NotificationControlSelectedHandler
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:501)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
+	... 8 more
