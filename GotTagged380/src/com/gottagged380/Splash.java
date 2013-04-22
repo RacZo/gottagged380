@@ -8,6 +8,7 @@ import android.os.Bundle;
 public class Splash extends Activity{
 
 	MediaPlayer mpSplash;
+	private boolean pingCheck = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,16 +19,18 @@ public class Splash extends Activity{
 		mpSplash = MediaPlayer.create(this, R.raw.splashsound);
 		mpSplash.start();
 		
+		new NetCheck(this).execute();
+		
 		Thread timer = new Thread(){
 			public void run(){
 				try{
-					sleep(3000);
+					sleep(7000);
 				} catch (InterruptedException e){
 					e.printStackTrace();
 				} finally{
 					Intent openWelcomeMenu = new Intent("com.gottagged380.WELCOMEMENU");
+					openWelcomeMenu.putExtra("Ping", pingCheck);
 					startActivity(openWelcomeMenu);
-					finish();
 				}
 			}
 		};
@@ -46,6 +49,7 @@ public class Splash extends Activity{
 		// TODO Auto-generated method stub
 		super.onPause();
 		mpSplash.pause();
+		finish();
 	}
 
 	@Override
@@ -56,6 +60,8 @@ public class Splash extends Activity{
 	}
 	
 	
-	
+	public void setNet(boolean check){
+		pingCheck = check;
+	}
 
 }

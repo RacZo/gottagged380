@@ -1,11 +1,13 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"2MERlHgXUfSlVQnFAL3vX-58eZg/5LvIdm_zNok5ynV8ggQGvI1SRP0\"",
+ "etag": "\"pF6h7OGB9E5arBzxcIiEhC2eyK8/b1Qp6vulb06Zx-dChvZNov_h4N4\"",
  "discoveryVersion": "v1",
  "id": "gamemanager:v1",
  "name": "gamemanager",
  "version": "v1",
  "description": "This is an API",
+ "ownerDomain": "google.com",
+ "ownerName": "Google",
  "icons": {
   "x16": "http://www.google.com/images/icons/product/search-16.gif",
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
@@ -62,6 +64,31 @@
   }
  },
  "schemas": {
+  "AvailableGames": {
+   "id": "AvailableGames",
+   "type": "object",
+   "properties": {
+    "games": {
+     "type": "array",
+     "items": {
+      "$ref": "Game"
+     }
+    }
+   }
+  },
+  "Game": {
+   "id": "Game",
+   "type": "object",
+   "properties": {
+    "creator": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
+  },
   "GameRequest": {
    "id": "GameRequest",
    "type": "object",
@@ -91,6 +118,22 @@
     }
    }
   },
+  "GameStatus": {
+   "id": "GameStatus",
+   "type": "object",
+   "properties": {
+    "gameId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "role": {
+     "type": "string"
+    },
+    "status": {
+     "type": "boolean"
+    }
+   }
+  },
   "JoinGame": {
    "id": "JoinGame",
    "type": "object",
@@ -106,11 +149,74 @@
      "type": "string"
     }
    }
+  },
+  "PlayerUpdate": {
+   "id": "PlayerUpdate",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "latitude": {
+     "type": "number",
+     "format": "double"
+    },
+    "longitude": {
+     "type": "number",
+     "format": "double"
+    },
+    "name": {
+     "type": "string"
+    }
+   }
+  },
+  "PlayerUpdateRespond": {
+   "id": "PlayerUpdateRespond",
+   "type": "object",
+   "properties": {
+    "distance": {
+     "type": "number",
+     "format": "double"
+    },
+    "distence": {
+     "type": "number",
+     "format": "double"
+    },
+    "hasEnded": {
+     "type": "boolean"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "winner": {
+     "type": "string"
+    }
+   }
   }
  },
  "resources": {
   "game": {
    "methods": {
+    "available": {
+     "id": "gamemanager.game.available",
+     "path": "availablegames/{name}",
+     "httpMethod": "GET",
+     "parameters": {
+      "name": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "name"
+     ],
+     "response": {
+      "$ref": "AvailableGames"
+     }
+    },
     "create": {
      "id": "gamemanager.game.create",
      "path": "createGame",
@@ -131,6 +237,46 @@
      },
      "response": {
       "$ref": "JoinGame"
+     }
+    },
+    "status": {
+     "id": "gamemanager.game.status",
+     "path": "checkGameStatus/{id}/{name}",
+     "httpMethod": "POST",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      },
+      "name": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id",
+      "name"
+     ],
+     "response": {
+      "$ref": "GameStatus"
+     }
+    }
+   }
+  },
+  "player": {
+   "methods": {
+    "update": {
+     "id": "gamemanager.player.update",
+     "path": "playerUpdate",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "PlayerUpdate"
+     },
+     "response": {
+      "$ref": "PlayerUpdateRespond"
      }
     }
    }

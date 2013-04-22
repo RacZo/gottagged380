@@ -11,11 +11,7 @@ public class PlayerUpdate {
 		private double longitude;
 		@Persistent
 		private Long gameSessionId;
-		@Persistent
-		private boolean hasJoined;
-		@Persistent
-		private String role;
-		@Persistent
+		
 		private String name;
 		
 		
@@ -49,23 +45,7 @@ public class PlayerUpdate {
 			return gameSessionId;
 		}
 		
-		public void join(boolean join){
-			this.hasJoined = join;
-		}
 		
-		public boolean hasJoined(){
-			return hasJoined;
-		}
-		
-		public void setRole(String role){
-			
-			this.role = role;
-		}
-		
-		public String getRole(){
-			
-			return role;
-		}
 		
 		public void setName(String name){
 			this.name = name;

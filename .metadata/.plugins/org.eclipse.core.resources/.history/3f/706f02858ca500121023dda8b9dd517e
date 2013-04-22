@@ -1,0 +1,30 @@
+package com.gottagged380;
+
+import javax.jdo.annotations.PersistenceCapable;
+
+@PersistenceCapable
+public class GameStatus {
+
+	
+	private boolean status;
+	private long gameSessionId;
+	
+	public GameStatus(){};
+	
+	public void hasStarted(boolean status){
+		this.status = status;
+	}
+	
+	public boolean hasStarted(){
+		return status;
+	}
+	
+	public void  setGameId(long id){
+		
+		this.gameSessionId = id;
+	}
+	
+	public long getGameId(){
+		return gameSessionId;
+	}
+}

@@ -11,13 +11,21 @@ public class GameSession {
 	
 	@PrimaryKey
 	@Persistent
-	Long gameSessionId;
+	private Long gameSessionId;
 	@Persistent
-	boolean isOver;
+	private boolean isOver;
 	@Persistent
-	boolean hasStarted;
+	private boolean hasStarted;
 	@Persistent
-	int gameDuration;
+	private int gameDuration;
+	@Persistent
+	private int numPlayers;
+	@Persistent
+	private String hider;
+	@Persistent
+	private String creator;
+	@Persistent
+	private String winner;
 	
 	public GameSession(){
 		
@@ -53,5 +61,38 @@ public class GameSession {
 	
 	public int getDuration(){
 		return gameDuration;
+	}
+	
+	public int getNumPlayers(){
+		return numPlayers;
+	}
+	
+	public void setNumPlayers(int num){
+		numPlayers = num;
+	}
+	
+	public String getHider(){
+		return hider;
+	}
+	
+	public void setHider(String name){
+		hider = name;
+	}
+	
+	public String getCreator(){
+		return creator;
+	}
+	
+	public void setCreator(String name){
+		creator = name;
+	}
+	public void setWinner(String winner){
+		
+		this.winner = winner;
+	}
+	
+	public String getWinner(){
+		
+		return winner;
 	}
 }

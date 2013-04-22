@@ -1,0 +1,22 @@
+package com.gottagged380;
+
+import java.util.List;
+
+import javax.jdo.annotations.PersistenceCapable;
+@PersistenceCapable
+public class AvailableGames {
+
+	
+	private List<Game> games;
+	
+	public List<Game> getGames(){
+		return games;
+	}
+	
+	public void setGames(List<Game> game){
+		games = game;
+	}
+	
+	
+
+}

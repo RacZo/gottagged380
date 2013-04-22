@@ -1,0 +1,15 @@
+package com.gottagged380;
+
+public class AvailableGameRequest {
+
+	private String name;
+	
+	public void setName(String name ){
+		this.name = name;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+}

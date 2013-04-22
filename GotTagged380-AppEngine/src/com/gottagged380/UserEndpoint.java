@@ -1,5 +1,7 @@
 package com.gottagged380;
 
+import java.util.List;
+
 import com.gottagged380.PMF;
 
 import com.google.api.server.spi.config.Api;
@@ -11,24 +13,58 @@ import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import javax.jdo.PersistenceManager;
 
+//import org.datanucleus.store.query.Query;
+import javax.jdo.Query;
 
 @Api(name = "userendpoint")
 public class UserEndpoint {
-
+	
+	@ApiMethod(name = "username.check")
+	@SuppressWarnings("unchecked")
+	public UserName checkUserName(UserName user){
+		
+		List<User> users;
+		PersistenceManager pm = getPersistenceManager();
+		Query q = pm.newQuery(User.class);
+		q.setFilter("name == '" + user.getname() +"'");
+		//q.declareParameters("String nameParam");
+		
+		try{
+			 users = (List<User>) q.execute();
+			
+		}finally{
+			q.closeAll();
+		}
+		
+		if(users.size() == 0 ){
+			user.isAvailable(true);
+			return user;
+		}else{
+			user.isAvailable(false);
+		}
+		
+		return user;
+	}
 	
 	/**
 	 * This method gets the entity having primary key id. It uses HTTP GET method.
 	 *
 	 * @param id the primary key of the java bean.
 	 * @return The entity with primary key id.
+	 * @throws Exception 
 	 */
 	@ApiMethod(name = "user.get")
-	public User getUser(@Named("id") String id) {
+	public User getUser(@Named("id") String id) throws Exception {
 		PersistenceManager mgr = getPersistenceManager();
 		User user = null;
 		try {
 			user = mgr.getObjectById(User.class, id);
-		} finally {
+		}catch (Exception e){
+			
+			throw new Exception("User is not registered");
+			
+		}
+		finally {
 			mgr.close();
 		}
 		

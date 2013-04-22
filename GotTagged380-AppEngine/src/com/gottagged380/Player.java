@@ -2,7 +2,7 @@ package com.gottagged380;
 
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
+
 
 @PersistenceCapable
 public class Player {
@@ -19,6 +19,8 @@ public class Player {
 	private String role;
 	@Persistent
 	private String name;
+	@Persistent
+	private boolean hasResponded;
 	
 	
 	public void setLatitude(double lat){
@@ -77,5 +79,12 @@ public class Player {
 		return name;
 	}
 	
+	public boolean hasResponded(){
+		return hasResponded;
+	}
+	
+	public void hasResponded(boolean respond){
+		this.hasResponded = respond;
+	}
 	
 }

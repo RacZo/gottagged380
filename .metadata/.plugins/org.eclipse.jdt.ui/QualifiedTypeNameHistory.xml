@@ -14,7 +14,14 @@
 <fullyQualifiedTypeName name="javax.jdo.annotations.Inheritance"/>
 <fullyQualifiedTypeName name="javax.jdo.annotations.InheritanceStrategy"/>
 <fullyQualifiedTypeName name="javax.jdo.annotations.Persistent"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="sun.util.logging.resources.logging"/>
 <fullyQualifiedTypeName name="org.mortbay.log.Log"/>
+<fullyQualifiedTypeName name="org.datanucleus.store.query.Query"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.location.Criteria"/>
+<fullyQualifiedTypeName name="android.provider.Settings"/>
+<fullyQualifiedTypeName name="com.gottagged380.PlayerUpdateRespond"/>
 </qualifiedTypeNameHistroy>

@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		// Start up RegisterActivity right away
+		// Start up WelcomeMenu right away
 		Intent intent = new Intent(this, WelcomeMenu.class);
 		startActivity(intent);
 	}

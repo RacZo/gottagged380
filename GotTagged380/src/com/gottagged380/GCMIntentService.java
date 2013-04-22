@@ -3,8 +3,13 @@ package com.gottagged380;
 import java.io.IOException;
 import java.net.URLEncoder;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 
 import com.google.android.gcm.GCMBaseIntentService;
@@ -13,10 +18,8 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.json.jackson.JacksonFactory;
-
-import com.gottagged380.deviceinfoendpoint.Deviceinfoendpoint;
-import com.gottagged380.deviceinfoendpoint.Deviceinfoendpoint.Builder;
-import com.gottagged380.deviceinfoendpoint.model.DeviceInfo;
+import com.gottagged380.userendpoint.Userendpoint;
+import com.gottagged380.userendpoint.model.User;
 
 /**
  * This class is started up as a service of the Android application. It listens
@@ -38,7 +41,8 @@ import com.gottagged380.deviceinfoendpoint.model.DeviceInfo;
  * information.
  */
 public class GCMIntentService extends GCMBaseIntentService {
-  private final Deviceinfoendpoint endpoint;
+  private final Userendpoint endpoint;
+  
 
   /*
    * TODO: Set this to a valid project number. See
@@ -46,6 +50,7 @@ public class GCMIntentService extends GCMBaseIntentService {
    * information.
    */
   protected static final String PROJECT_NUMBER = "606819551411";
+  private static final String TAG = "GCMLog";
 
   /**
    * Register the device for GCM.
@@ -71,12 +76,13 @@ public class GCMIntentService extends GCMBaseIntentService {
 
   public GCMIntentService() {
     super(PROJECT_NUMBER);
-    Builder endpointBuilder = new Deviceinfoendpoint.Builder(
+    Userendpoint.Builder endpointBuilder = new Userendpoint.Builder(
         AndroidHttp.newCompatibleTransport(), new JacksonFactory(),
         new HttpRequestInitializer() {
           public void initialize(HttpRequest httpRequest) {
           }
         });
+    endpointBuilder.setApplicationName("com.gottagged380");
     endpoint = CloudEndpointUtils.updateBuilder(endpointBuilder).build();
   }
 
@@ -110,132 +116,51 @@ public class GCMIntentService extends GCMBaseIntentService {
    */
   @Override
   public void onMessage(Context context, Intent intent) {
-    sendNotificationIntent(
-        context,
-        "Message received via Google Cloud Messaging:\n\n"
-            + intent.getStringExtra("message"), true, false);
-  }
+	 
+	  NotificationCompat.Builder mBuilder =
+		        new NotificationCompat.Builder(this)
+		        .setSmallIcon(R.drawable.ic_launcher)
+		        .setContentTitle("GotTagged Invite")
+		        .setContentText(intent.getStringExtra("message"));
+		// Creates an explicit intent for an Activity in your app
+	  
+		Intent resultIntent = new Intent(this, WelcomeMenu.class);
 
-  /**
-   * Called back when a registration token has been received from the Google
-   * Cloud Messaging service.
-   * 
-   * @param context
-   *            the Context
-   */
-  @Override
-  public void onRegistered(Context context, String registration) {
-    /*
-     * HACK: Get rid of this ugly exception-handling code; it's a problem
-     * that the DevAppServer has with Cloud Endpoint methods that return
-     * null.
-     */
-    boolean alreadyRegisteredWithEndpointServer = false;
+		// The stack builder object will contain an artificial back stack for the
+		// started Activity.
+		// This ensures that navigating backward from the Activity leads out of
+		// your application to the Home screen.
+		//TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+		// Adds the back stack for the Intent (but not the Intent itself)
+		//stackBuilder.addParentStack(WelcomeMenu.class);
+		// Adds the Intent that starts the Activity to the top of the stack
+		//stackBuilder.addNextIntent(resultIntent);
+		//PendingIntent resultPendingIntent =
+		 //       stackBuilder.getPendingIntent(
+		 //           0,
+		//            PendingIntent.FLAG_UPDATE_CURRENT
+		//        );
+		//mBuilder.setContentIntent(resultPendingIntent);
+		NotificationManager mNotificationManager =
+		    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		
+		// mId allows you to update the notification later on.
+	//	mNotificationManager.notify(mId, mBuilder.build());
+		
+		/*
+	 SharedPreferences myPrefs = this.getSharedPreferences("com.gottagged380", 0);
+     SharedPreferences.Editor prefsEditor = myPrefs.edit();
+     prefsEditor.putString("GameSessionId", intent.getStringExtra("message"));
+     prefsEditor.commit();
+	 */
+	 Log.v(TAG, intent.getStringExtra("message"));
+	// Log.v(TAG, internalStore.getGameId());
+   // sendNotificationIntent(
+   //     context,
+   //     "Message received via Google Cloud Messaging:\n\n"
+   //         + intent.getStringExtra("message"), true, false);
+   }
 
-    try {
-
-      /*
-       * Using cloud endpoints, see if the device has already been
-       * registered with the backend
-       */
-      DeviceInfo existingInfo = endpoint.getDeviceInfo(registration)
-          .execute();
-
-      if (registration.equals(existingInfo.getDeviceRegistrationID())) {
-        alreadyRegisteredWithEndpointServer = true;
-      }
-    } catch (IOException e) {
-      // Ignore
-    }
-
-    try {
-      if (!alreadyRegisteredWithEndpointServer) {
-        /*
-         * We are not registered as yet. Send an endpoint message
-         * containing the GCM registration id and some of the device's
-         * product information over to the backend. Then, we'll be
-         * registered.
-         */
-        DeviceInfo deviceInfo = new DeviceInfo();
-        endpoint.insertDeviceInfo(
-            deviceInfo
-                .setDeviceRegistrationID(registration)
-                .setTimestamp(System.currentTimeMillis())
-                .setDeviceInformation(
-                    URLEncoder
-                        .encode(android.os.Build.MANUFACTURER
-                            + " "
-                            + android.os.Build.PRODUCT,
-                            "UTF-8"))).execute();
-      }
-    } catch (IOException e) {
-      Log.e(GCMIntentService.class.getName(),
-          "Exception received when attempting to register with server at "
-              + endpoint.getRootUrl(), e);
-
-      sendNotificationIntent(
-          context,
-          "1) Registration with Google Cloud Messaging...SUCCEEDED!\n\n"
-              + "2) Registration with Endpoints Server...FAILED!\n\n"
-              + "Unable to register your device with your Cloud Endpoints server running at "
-              + endpoint.getRootUrl()
-              + ". Either your Cloud Endpoints server is not deployed to App Engine, or "
-              + "your settings need to be changed to run against a local instance "
-              + "by setting LOCAL_ANDROID_RUN to 'true' in CloudEndpointUtils.java.",
-          true, true);
-      return;
-    }
-
-    sendNotificationIntent(
-        context,
-        "1) Registration with Google Cloud Messaging...SUCCEEDED!\n\n"
-            + "2) Registration with Endpoints Server...SUCCEEDED!\n\n"
-            + "Device registration with Cloud Endpoints Server running at  "
-            + endpoint.getRootUrl()
-            + " succeeded!\n\n"
-            + "To send a message to this device, "
-            + "open your browser and navigate to the sample application at "
-            + getWebSampleUrl(endpoint.getRootUrl()), false, true);
-  }
-
-  /**
-   * Called back when the Google Cloud Messaging service has unregistered the
-   * device.
-   * 
-   * @param context
-   *            the Context
-   */
-  @Override
-  protected void onUnregistered(Context context, String registrationId) {
-
-    if (registrationId != null && registrationId.length() > 0) {
-
-      try {
-        endpoint.removeDeviceInfo(registrationId).execute();
-      } catch (IOException e) {
-        Log.e(GCMIntentService.class.getName(),
-            "Exception received when attempting to unregister with server at "
-                + endpoint.getRootUrl(), e);
-        sendNotificationIntent(
-            context,
-            "1) De-registration with Google Cloud Messaging....SUCCEEDED!\n\n"
-                + "2) De-registration with Endpoints Server...FAILED!\n\n"
-                + "We were unable to de-register your device from your Cloud "
-                + "Endpoints server running at "
-                + endpoint.getRootUrl() + "."
-                + "See your Android log for more information.",
-            true, true);
-        return;
-      }
-    }
-
-    sendNotificationIntent(
-        context,
-        "1) De-registration with Google Cloud Messaging....SUCCEEDED!\n\n"
-            + "2) De-registration with Endpoints Server...SUCCEEDED!\n\n"
-            + "Device de-registration with Cloud Endpoints server running at  "
-            + endpoint.getRootUrl() + " succeeded!", false, true);
-  }
 
   /**
    * Generate a notification intent and dispatch it to the RegisterActivity.
@@ -257,7 +182,7 @@ public class GCMIntentService extends GCMBaseIntentService {
    */
   private void sendNotificationIntent(Context context, String message,
       boolean isError, boolean isRegistrationMessage) {
-    Intent notificationIntent = new Intent(context, RegisterActivity.class);
+    Intent notificationIntent = new Intent(context, GCMRegister.class);
     notificationIntent.putExtra("gcmIntentServiceMessage", true);
     notificationIntent.putExtra("registrationMessage",
         isRegistrationMessage);
@@ -275,4 +200,16 @@ public class GCMIntentService extends GCMBaseIntentService {
     }
     return endpointUrl.replace("/_ah/api/", "/index.html");
   }
+
+@Override
+protected void onUnregistered(Context arg0, String arg1) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+protected void onRegistered(Context arg0, String arg1) {
+	// TODO Auto-generated method stub
+	
+}
 }

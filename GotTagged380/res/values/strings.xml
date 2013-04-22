@@ -10,6 +10,26 @@
     <string name="title_activity_welcome_menu">WelcomeMenu</string>
     <string name="hello_world">Hello world!</string>
     <string name="hello">Hello!!</string>
-    <string name="title_activity_join">JoinActivity</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="welcome">GotTagged</string>
+    <string name="login">Login</string>
+
+    <string-array name="spinner"></string-array>
+
+    <string name="title_activity_register_username">RegisterUsername</string>
+    <string name="register_instructions">Enter the username you want to use.  GotTagged will check to see if the name is available.</string>
+    <string name="register_button">Register</string>
+    <string name="username_taken">Sorry, that username is taken.  Try another one!</string>
+    <string name="ok">Fine, Jeez</string>
+    <string name="main_menu_prompt">Welcome to the GotTagged Main Menu!</string>
+    <string name="create_game_button">Create Game</string>
+    <string name="create_button_text">Create Session</string>
+    <string name="title_activity_create_game">Create Game</string>
+    <string name="create_game_instructions">Enter the names of the users whom you would like to play with.</string>
+    <string name="title_activity_waiting">Waiting Screen</string>
+    <string name="join_game_button">Join Game</string>
+    <string name="title_activity_join_game">Join Game</string>
+    <string name="default_wait_message">Contacting server, please wait...</string>
+    <string name="title_activity_game_over">Game Over</string>
 
 </resources>

@@ -16,5 +16,5 @@
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.google.appengine.tools.development.DevAppServerMain"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--port=8888 /Users/bardia/Documents/gottagged380/GotTagged380-AppEngine/war"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="GotTagged380-AppEngine"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Ddatastore.default_high_rep_job_policy_unapplied_job_pct=50 -Xmx512m -javaagent:/Applications/ADT/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.7.5/appengine-java-sdk-1.7.5/lib/agent/appengine-agent.jar -XstartOnFirstThread -Xbootclasspath/p:/Applications/ADT/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.7.5/appengine-java-sdk-1.7.5/lib/override/appengine-dev-jdk-overrides.jar"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Ddatastore.default_high_rep_job_policy_unapplied_job_pct=50 -Xmx512m -javaagent:/Applications/ADT/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.7.6/appengine-java-sdk-1.7.6/lib/agent/appengine-agent.jar -XstartOnFirstThread -Xbootclasspath/p:/Applications/ADT/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.7.5/appengine-java-sdk-1.7.5/lib/override/appengine-dev-jdk-overrides.jar"/>
 </launchConfiguration>

@@ -1,11 +1,11 @@
 {
   "files": [
     {
-      "path": "gottagged380-userendpoint-v1-20130327203507-java-1.14.1-beta-sources.jar", 
+      "path": "gottagged380-userendpoint-v1-20130422031828-java-1.14.1-beta-sources.jar", 
       "type": "source"
     }, 
     {
-      "path": "gottagged380-userendpoint-v1-20130327203507-java-1.14.1-beta.jar.properties", 
+      "path": "gottagged380-userendpoint-v1-20130422031828-java-1.14.1-beta.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -687,7 +687,7 @@
     }
   ], 
   "language_version": "1.14.1-beta", 
-  "revision": 20130327203507, 
+  "revision": 20130422031828, 
   "id": "userendpoint:v1", 
   "name": "userendpoint"
 }

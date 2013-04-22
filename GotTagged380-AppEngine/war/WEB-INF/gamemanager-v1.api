@@ -6,7 +6,7 @@
   "version" : "v1",
   "defaultVersion" : false,
   "adapter" : {
-    "bns" : "http://gottagged380.appspot.com/_ah/spi",
+    "bns" : "https://gottagged380.appspot.com/_ah/spi",
     "deadline" : 10.0,
     "type" : "lily"
   },
@@ -30,10 +30,45 @@
       "scopes" : [ ],
       "audiences" : [ ],
       "clientIds" : [ ],
-      "rosyMethod" : "GameManager.createGame",
+      "rosyMethod" : "com.gottagged380.GameManager.createGame",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "gamemanager.player.update" : {
+      "path" : "playerUpdate",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.gottagged380.GameManager.playerUpdate",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "gamemanager.game.available" : {
+      "path" : "availablegames/{name}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.gottagged380.GameManager.getAvailableGame",
+      "request" : {
+        "parameters" : {
+          "name" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -45,10 +80,34 @@
       "scopes" : [ ],
       "audiences" : [ ],
       "clientIds" : [ ],
-      "rosyMethod" : "GameManager.joinGame",
+      "rosyMethod" : "com.gottagged380.GameManager.joinGame",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "gamemanager.game.status" : {
+      "path" : "checkGameStatus/{id}/{name}",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.gottagged380.GameManager.checkGameStatus",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          },
+          "name" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -85,6 +144,72 @@
           }
         }
       },
+      "PlayerUpdate" : {
+        "id" : "PlayerUpdate",
+        "type" : "object",
+        "properties" : {
+          "latitude" : {
+            "type" : "number"
+          },
+          "longitude" : {
+            "type" : "number"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "PlayerUpdateRespond" : {
+        "id" : "PlayerUpdateRespond",
+        "type" : "object",
+        "properties" : {
+          "distance" : {
+            "type" : "number"
+          },
+          "hasEnded" : {
+            "type" : "boolean"
+          },
+          "winner" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "distence" : {
+            "type" : "number"
+          }
+        }
+      },
+      "AvailableGames" : {
+        "id" : "AvailableGames",
+        "type" : "object",
+        "properties" : {
+          "games" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Game"
+            }
+          }
+        }
+      },
+      "Game" : {
+        "id" : "Game",
+        "type" : "object",
+        "properties" : {
+          "creator" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
       "JoinGame" : {
         "id" : "JoinGame",
         "type" : "object",
@@ -100,10 +225,26 @@
             "format" : "int64"
           }
         }
+      },
+      "GameStatus" : {
+        "id" : "GameStatus",
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "boolean"
+          },
+          "role" : {
+            "type" : "string"
+          },
+          "gameId" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
       }
     },
     "methods" : {
-      "GameManager.createGame" : {
+      "com.gottagged380.GameManager.createGame" : {
         "request" : {
           "$ref" : "GameRequest"
         },
@@ -111,12 +252,30 @@
           "$ref" : "GameRequestResponse"
         }
       },
-      "GameManager.joinGame" : {
+      "com.gottagged380.GameManager.playerUpdate" : {
+        "request" : {
+          "$ref" : "PlayerUpdate"
+        },
+        "response" : {
+          "$ref" : "PlayerUpdateRespond"
+        }
+      },
+      "com.gottagged380.GameManager.getAvailableGame" : {
+        "response" : {
+          "$ref" : "AvailableGames"
+        }
+      },
+      "com.gottagged380.GameManager.joinGame" : {
         "request" : {
           "$ref" : "JoinGame"
         },
         "response" : {
           "$ref" : "JoinGame"
+        }
+      },
+      "com.gottagged380.GameManager.checkGameStatus" : {
+        "response" : {
+          "$ref" : "GameStatus"
         }
       }
     }

@@ -1,11 +1,13 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"2MERlHgXUfSlVQnFAL3vX-58eZg/bRahYV35l1HtaU8V7h97xW_35m8\"",
+ "etag": "\"pF6h7OGB9E5arBzxcIiEhC2eyK8/KLEIU4vUTs54LEwKL3G9m_bsx6E\"",
  "discoveryVersion": "v1",
  "id": "userendpoint:v1",
  "name": "userendpoint",
  "version": "v1",
  "description": "This is an API",
+ "ownerDomain": "google.com",
+ "ownerName": "Google",
  "icons": {
   "x16": "http://www.google.com/images/icons/product/search-16.gif",
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
@@ -72,6 +74,18 @@
     },
     "email": {
      "type": "string"
+    },
+    "name": {
+     "type": "string"
+    }
+   }
+  },
+  "UserName": {
+   "id": "UserName",
+   "type": "object",
+   "properties": {
+    "available": {
+     "type": "boolean"
     },
     "name": {
      "type": "string"
@@ -150,6 +164,20 @@
    ],
    "returns": {
     "$ref": "User"
+   }
+  },
+  "userendpoint.username.check": {
+   "id": "userendpoint.username.check",
+   "parameters": {
+    "resource": {
+     "$ref": "UserName"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "UserName"
    }
   }
  }

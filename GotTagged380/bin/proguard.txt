@@ -1,27 +1,60 @@
-# view AndroidManifest.xml #generated:59
+# view AndroidManifest.xml #generated:65
 -keep class com.google.android.gcm.GCMBroadcastReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:57
+# view AndroidManifest.xml #generated:121
+-keep class com.gottagged380.CreateGameActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:63
 -keep class com.gottagged380.GCMIntentService { <init>(...); }
 
-# view AndroidManifest.xml #generated:77
+# view AndroidManifest.xml #generated:145
+-keep class com.gottagged380.GameOverActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:83
 -keep class com.gottagged380.Gameplay { <init>(...); }
 
-# view AndroidManifest.xml #generated:81
--keep class com.gottagged380.JoinActivity { <init>(...); }
+# view AndroidManifest.xml #generated:139
+-keep class com.gottagged380.JoinGameActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:38
+# view AndroidManifest.xml #generated:105
+-keep class com.gottagged380.LoginActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:40
 -keep class com.gottagged380.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:74
+# view AndroidManifest.xml #generated:94
+-keep class com.gottagged380.MainMenu { <init>(...); }
+
+# view AndroidManifest.xml #generated:80
 -keep class com.gottagged380.RegisterActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:29
+# view AndroidManifest.xml #generated:110
+-keep class com.gottagged380.RegisterUsername { <init>(...); }
+
+# view AndroidManifest.xml #generated:30
 -keep class com.gottagged380.Splash { <init>(...); }
 
-# view AndroidManifest.xml #generated:47
+# view AndroidManifest.xml #generated:132
+-keep class com.gottagged380.WaitingActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:51
 -keep class com.gottagged380.WelcomeMenu { <init>(...); }
+
+# onClick res/layout/activity_register_username.xml #generated:29
+-keepclassmembers class * { *** checkStringInDatastore(...); }
+
+# onClick res/layout/activity_create_game.xml #generated:17
+-keepclassmembers class * { *** createGameSession(...); }
+
+# onClick res/layout/activity_main_menu.xml #generated:20
+-keepclassmembers class * { *** goToCreateGame(...); }
+
+# onClick res/layout/activity_main_menu.xml #generated:30
+-keepclassmembers class * { *** goToJoinGame(...); }
 
 # onClick res/layout/activity_register.xml #generated:22
 -keepclassmembers class * { *** onSave(...); }
+
+# onClick res/layout/activity_join_game.xml #generated:18
+-keepclassmembers class * { *** refreshList(...); }
 

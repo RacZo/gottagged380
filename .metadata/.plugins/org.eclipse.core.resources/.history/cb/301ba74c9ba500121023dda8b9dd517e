@@ -1,0 +1,23 @@
+package com.gottagged380;
+
+public class Game {
+
+	private String creator;
+	private long id;
+	
+	public void setCreator(String name){
+		creator = name;
+	}
+	
+	public String getCreator(){
+		return creator;
+	}
+	
+	public void setId(long id){
+		this.id = id;
+	}
+	
+	public long getId(){
+		return id;
+	}
+}

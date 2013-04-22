@@ -1,0 +1,251 @@
+package com.gottagged380;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.os.Vibrator;
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class Gameplay extends Activity {
+	Button disButton;
+	//TextView disInfo;
+	private Gameplay gMenu;
+	LocationManager locManager;
+	LocationListener locListener;
+	private double lon = 0;
+	private double lat = 0;
+	private long currentGame;
+	private Gameplay gpMenu;
+	SharedPreferences settings;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_gameplay);
+
+		disButton = (Button) findViewById(R.id.disButton);
+		
+		settings = this.getSharedPreferences("com.gottagged380", 0);
+	
+		locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		Criteria myCriteria = new Criteria();
+		myCriteria.setAccuracy(Criteria.ACCURACY_HIGH);
+		myCriteria.setPowerRequirement(Criteria.POWER_LOW);
+		// let Android select the right location provider for you
+		String myProvider = locManager.getBestProvider(myCriteria, true); 
+
+
+		locListener = new MyLocationListener();
+		locManager.requestLocationUpdates(myProvider,2000,0, locListener);
+		disButton.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				//disInfo.setText("Your GPS is " + counter);
+			}
+		}); // end of setOnClickListener
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.gameplay, menu);
+		return true;
+	}
+
+
+	public class MyLocationListener implements LocationListener 
+	{
+		TextView disInfo = (TextView) findViewById(R.id.disInfo);
+		private static final String TAG = "GPSCounter";
+		private static final String TAG2 = "ArraySize";
+		private static final String TAG3 = "past523";
+		private static final String TAG4 = "currentGame";
+		double lon;
+		double lat;
+		double dist;
+		List<Double> latList = new ArrayList<Double>();
+		List<Double> lonList = new ArrayList<Double>();
+		List<Double> locations = new ArrayList<Double>();
+		double average = 0;
+		int counter = 0;
+		//double totalDist = 0;
+		SharedPreferences settings;
+		
+		@Override
+		public void onLocationChanged(Location loc){
+			Log.d("tag", "Finding Latitude");
+			lat = loc.getLatitude();
+			Log.d("tag", "Lat: "+String.valueOf(lat));
+			Log.d("tag", "Finding Longitude");
+			lon = loc.getLongitude();
+			Log.d("tag", "Lon: "+String.valueOf(lon));
+			
+			String Text = "My current location is: " +
+					"\nLatitude = " + lat +
+					"\nLongitude = " + lon +
+					"\nDistance = " + dist;
+
+			// Display location
+			disInfo.setText(Text);
+
+			if(latList.size() == 5){
+				latList.remove(0);
+				latList.add(lat);
+			}else{
+				latList.add(lat);
+			}
+			
+			if(lonList.size() == 5){
+				lonList.remove(0);
+				lonList.add(lon);
+			}else{
+				lonList.add(lon);
+			}
+			
+			new GameplayUpdate(this).execute();
+
+			String gpsCounter = counter + "";
+			String arraySize = locations.size() + "";
+
+			//locations.add(dist);
+
+
+			Log.v(TAG, gpsCounter);
+			Log.v(TAG2, arraySize);
+			/*
+			if(counter <= 5){
+				for(int i = 0; i < locations.size(); i++)
+					totalDist += locations.get(i);
+			}
+
+			if(counter > 5){
+				int past5 = locations.size() - 5;
+				String past523 = past5 + "";
+				Log.v(TAG3, past523);
+				for(int i = past5; i < locations.size(); i++){
+					totalDist += locations.get(i);
+				}
+			}
+			
+
+
+			if(counter == 1)
+				average = totalDist;
+			else if(counter == 2)
+				average = totalDist / 2;
+			else if(counter == 3)
+				average = totalDist / 3;
+			else if(counter == 4)
+				average = totalDist / 4;
+			else
+				average = totalDist / 5;
+
+			counter++;
+			*/
+			vibe1(dist);
+
+		}
+
+		@Override
+		public void onProviderDisabled(String provider){
+			Toast.makeText(getApplicationContext(), "Gps Disabled", Toast.LENGTH_SHORT ).show();
+		}
+
+		@Override
+		public void onProviderEnabled(String provider){
+			Toast.makeText(getApplicationContext(), "Gps Enabled", Toast.LENGTH_SHORT).show();
+		}
+
+		@Override
+		public void onStatusChanged(String provider, int status, Bundle extras){
+		}
+
+		public void vibe1(double distance){
+			Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+			if(dist <= 25){
+				long[] pattern = {0, 40, 0, 40, 40, 0, 40, 0, 40};
+				v.vibrate(pattern, -1);
+			}
+			
+			else if(dist > 25 && dist <= 75){
+				long[] pattern = {0, 1500};
+				v.vibrate(pattern, -1);
+			}
+			
+			else if(dist > 75){
+				long[] pattern = {1000, 750};
+				v.vibrate(pattern, -1);
+			}
+
+		}
+
+		public double getLong(){
+			
+			double tempLon = 0;
+			int counter = 0;
+			for(double l : lonList){
+				tempLon += l;
+				counter++;
+			}
+			return tempLon / counter;
+		}
+
+		public double getLat(){
+			
+			double tempLat = 0;
+			int counter = 0;
+			
+			for(double l : latList){
+				tempLat += l;
+				counter++;
+			}
+				
+					
+			return tempLat/ counter;
+		}
+
+		public void setDist(double dis){
+			dist = dis;
+		}
+		
+		public Long getCurrentGame(){	
+			
+			SharedPreferences settings = getShared();
+			Long sid = settings.getLong("CurrentGame", 0);
+			String currentg = sid.toString();
+			Log.v(TAG4, currentg);
+			return sid;
+		}
+		
+		
+		public SharedPreferences getShared(){
+			return getSharedPreferences("com.gottagged380", 0);
+		}
+	}//end of LocationListenerClass
+	
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		locManager.removeUpdates(locListener);
+		settings.edit().remove("CurrentGame");
+	}
+
+}
